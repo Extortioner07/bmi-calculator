@@ -1,0 +1,21 @@
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  transition: background-color 0.5s, color 0.5s;
+}
+.light-theme{
+  background-color: #fff;
+  color: black;
+}
+.dark-theme{
+    background-color: #1D232A;
+    color: #fff;
+  }
+.rotation{
+ transition: transform 1s;
+ transform: rotate(200deg) translateZ(0);
+ cursor: pointer;
+}
+.rotation-2{
+  transition: transform 1s;
+  transform: rotate(-200deg) translateZ(0);
+}

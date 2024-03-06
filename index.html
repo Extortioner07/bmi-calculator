@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- tailWind CSS -->
+    <title>BMI</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.0/dist/full.min.css" rel="stylesheet" type="text/css" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/theme-change@2.0.2/index.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="min-h-screen">
+    <header class="container m-auto pt-3">
+        <div class="bg-base-100 bg-[#212c3d] rounded-xl">
+            <div class="flex justify-around py-5">
+              <div>
+                <a class="font-medium text-5xl text-white"><span> B</span><span>mi Calculator</span></a>
+              </div>
+              <div>
+              <img class="rotation" id="icon" src="images/day-and-night.png" width="50px" alt="">
+              </div>
+            </div>
+          </div>
+    </header>
+    <main class="container m-auto">
+      <h2></h2>
+      <section>
+        <div class="flex justify-center mt-8">
+          <!-- figure 1 -->
+          <div id="card-1" class="card w-96 bg-slate-400 shadow-xl">
+            <div id="hidden" class="">
+              <figure id="figure-img" class="pt-4"><img src="images/happy.png" width="100px" height="150px" alt="Shoes" /></figure>
+            <div class="card-body text-center items-center">
+              <h2 class="card-title text-3xl">Welcome!</h2>
+              <p class="text-xl">You look great today. 
+                <br>
+                <span class="text-2xl font-semibold">Let's Start</span>
+              </p>
+              </div>
+            </div>
+            </div>
+
+            <!--  -->
+            <!-- figure 2 -->
+          <div id="card-2" class="card w-96 bg-slate-400 shadow-xl hidden">
+            <figure class="pt-4"><img src="images/man.png" width="100px" height="150px" alt="Shoes" /></figure>
+            <div class="card-body text-center items-center">
+              <h2 class="card-title text-3xl">Damn
+                !You're underweight.</h2>
+              <p class="text-xl"> 18.5, you are underweight. 
+                <br>
+                <span class="text-2xl font-semibold text-indigo-600">You need to eat.Mate!</span>
+              </p>
+              </div>
+            </div>
+            <!-- figure 3 -->
+          <div id="card-3" class="card w-96 bg-slate-400 shadow-xl hidden">
+            <figure class="pt-4"><img src="images/weightlifting.png" width="100px" height="150px" alt="Shoes" /></figure>
+            <div class="card-body text-center items-center">
+              <h2 class="card-title text-3xl">Normal!</h2>
+              <p class="text-xl">18.5 and BMI =24.9, you are normal. 
+                <br>
+                <span class="text-2xl text-indigo-600">You Look Fit, Chill.</span>
+              </p>
+              </div>
+            </div>
+            <!-- figure 4 -->
+          <div id="card-4" class="card w-96 bg-slate-400 shadow-xl hidden">
+            <figure class="pt-4"><img src="images/overweight.png" width="100px" height="150px" alt="Shoes" /></figure>
+            <div class="card-body text-center items-center">
+              <h2 class="card-title text-3xl">Overweight</h2>
+              <p class="text-xl">25 and BMI = 29.9, you are overweight. 
+                <br>
+                <span class="text-2xl text-indigo-600">Are you Trying to break my machine?</span>
+              </p>
+              </div>
+            </div>
+            <!-- figure 5 -->
+          <div id="card-5" class="card w-96 bg-slate-400 shadow-xl hidden">
+            <figure class="pt-4"><img src="images/overweight.png" width="100px" height="150px" alt="Shoes" /></figure>
+            <div class="card-body text-center items-center">
+              <h2 class="card-title text-3xl">You are obese.</h2>
+              <p class="text-xl">Machine is Broken. 
+                <br>
+                <span class="text-2xl text-indigo-600">Brother, You're Done.</span>
+              </p>
+              </div>
+            </div>
+          </div>
+    </section>
+      <section>
+        <!-- data section -->
+        <div class="flex justify-center gap-9 mt-7">
+          <div>
+            <label class="text-xl font-semibold" for="input-1">Your height:</label>
+            <br>
+            <div>
+              <input id="feet-value" class="text-xl px-4 py-2 w-28 text-black border-2 border-black rounded" type="text" placeholder="Foot">
+              <input id="inch-value" class="text-xl px-4 text-black py-2 w-28 border-2 border-black rounded" type="text" placeholder="Inch">
+              <span>Feet</span>
+            </div>
+          </div>
+          <div>
+            <label class="text-xl font-semibold" for="input-2">Your weight:</label>
+            <br>
+            <input id="kg-value" class="text-xl  px-4 py-2 w-48 border-2 text-black border-black rounded" type="text" placeholder="Insert">
+          <span >Kg</span>
+          </div>
+        </div>
+        <div class="text-center mt-1">
+          <div><span class="text-sm font-semibold">*if your height is integer(4,5,6,7)foot then insert inch value '0'. <br>
+          Otherwise The answer will be 'NaN'</span></div>
+        </div>
+        </div>
+        <div class="flex flex-col items-center mt-3 space-y-3">
+          <button onclick="clickToCalculate()" class="btn bg-teal-500 text-xl">Calculate</button>
+          <label class="text-xl font-semibold" for="result">Your BMI</label>
+          <img src="images/icons8-down-arrow-48.png" alt="">
+          <!-- result -->
+          <div class="space-x-2 pl-14">
+            <input id="total-bmi" class="text-xl px-4 py-2 w-24 text-center text-black border-2 border-black" type="text" placeholder="0"><span class="font-semibold">Kg/m
+              <sup>2</sup></span>
+          </div>
+        </div>
+        <form action="">
+          
+        </form>
+      </section>
+      <!-- photo Section -->
+      <section>
+        <div>
+          <!-- man-1 -->
+          <div class="">
+            <div class="flex flex-col justify-center items-center">
+        <img src="images/icons8-human-100 (1).png" width="250px" height="400px" alt="">
+    </div>
+    <h3 class="text-center text-3xl font-semibold">Normal</h3>
+          </div>
+          <!-- man 2  -->
+          <div class="hidden">
+            <div class="flex flex-col justify-center items-center">
+        <img src="images/icons8-human-100 (1).png" width="250px" height="400px" alt="">
+    </div>
+    <h3 class="text-center text-3xl font-semibold">underweight</h3>
+          </div>
+          <!-- man 3  -->
+          <div class="hidden">
+            <div class="flex flex-col justify-center items-center">
+        <img src="images/icons8-human-100 (1).png" width="250px" height="400px" alt="">
+    </div>
+    <h3 class="text-center text-3xl font-semibold">Normal</h3>
+          </div>
+          <!-- man 4 -->
+          <div class="hidden">
+            <div class="flex flex-col justify-center items-center">
+        <img src="images/icons8-human-100 (1).png" width="250px" height="400px" alt="">
+    </div>
+    <h3 class="text-center text-3xl font-semibold">Overweight</h3>
+          </div>
+          <!-- man 5 -->
+          <div class="hidden">
+            <div class="flex flex-col justify-center items-center">
+        <img src="images/icons8-human-100 (1).png" width="250px" height="400px" alt="">
+    </div>
+    <h3 class="text-center text-3xl font-semibold">Obese</h3>
+          </div>
+        </div>
+      </section>
+    </main>
+    
+    <script src="calculate.js"></script>
+</body>
+</html>
